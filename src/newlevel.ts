@@ -19,7 +19,6 @@ export enum difficulties {
 export type SumMonLevel = {
   spots: units[][];
   difficulty: difficulties;
-  units: units[];
   results: { horizontal: number[]; vertical: number[] };
   unitInventory: Record<string, number>;
 };
@@ -129,7 +128,6 @@ export class NewLevel {
     return {
       spots: spots,
       difficulty: config.difficulty,
-      units: availableUnits,
       results: { horizontal: horizontalResults, vertical: verticalResults },
       unitInventory: this.countNumbersIn2DArray(spots),
     };
