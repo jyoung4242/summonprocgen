@@ -21,6 +21,7 @@ export type SumMonLevel = {
   difficulty: difficulties;
   units: units[];
   results: { horizontal: number[]; vertical: number[] };
+  unitInventory: Record<string, number>;
 };
 
 interface NewLevelConfig {
@@ -123,11 +124,14 @@ export class NewLevel {
       horizontalResults[index] = result;
     });
 
+    // iterate overspots and count each type unit
+
     return {
       spots: spots,
       difficulty: config.difficulty,
       units: availableUnits,
       results: { horizontal: horizontalResults, vertical: verticalResults },
+      unitInventory: this.countNumbersIn2DArray(spots),
     };
   }
 
@@ -144,5 +148,21 @@ export class NewLevel {
 
   private static _getRandomElement(width: number, height: number): number[] {
     return [NewLevel._getRandomInteger(0, width - 1), NewLevel._getRandomInteger(0, height - 1)];
+  }
+
+  private static countNumbersIn2DArray(array: number[][]): Record<number, number> {
+    const counts: Record<number, number> = {};
+
+    for (const row of array) {
+      for (const num of row) {
+        if (counts[num] !== undefined) {
+          counts[num]++;
+        } else {
+          counts[num] = 1;
+        }
+      }
+    }
+
+    return counts;
   }
 }
