@@ -26,7 +26,6 @@ export type SumMonLevel = {
 interface NewLevelConfig {
   width?: number;
   height?: number;
-  seed?: number;
   difficulty: difficulties;
 }
 

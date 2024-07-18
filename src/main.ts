@@ -27,3 +27,9 @@ console.log("hard Level");
 console.log("**************************************");
 
 console.log(NewLevel.generate({ difficulty: difficulties.hard }));
+
+console.log("**************************************");
+console.log("custom Level 3x5");
+console.log("**************************************");
+
+console.log(NewLevel.generate({ difficulty: difficulties.hard, height: 3, width: 5 }));
