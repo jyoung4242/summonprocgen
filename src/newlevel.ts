@@ -72,7 +72,6 @@ export class NewLevel {
 
     // fill inventory
     let availableUnits: units[] = [];
-    console.log(numberOfIneventoryUnits);
 
     for (let i = 0; i < numberOfIneventoryUnits; i++) {
       availableUnits.push(NewLevel._pickOne(inventoryTypes));
